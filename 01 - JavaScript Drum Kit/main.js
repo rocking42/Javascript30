@@ -6,7 +6,7 @@ function findKey(e) {
       // Add the class to highlight the node
       key.classList.add("playing");
       // find the sound based on the class
-      var sound = document.querySelector(`.a${e.keyCode}`);
+      var sound = document.querySelector(`audio[data-key='${e.keyCode}']`);
       // always plays the sound from the start on each keypress
       sound.currentTime = 0;
       // play the sound
