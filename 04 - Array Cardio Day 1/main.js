@@ -43,8 +43,10 @@ const allAge = inventors.reduce((a,b) => {
 console.log(allAge);
 // 5. Sort the inventors by years lived
 const oldToYoung = inventors.sort((a, b) => {
+  // calvulate the age
   const old = b.passed - b.year;
   const young = a.passed - b.year;
+  // return the sorted values
   return young - old;
 });
 console.log(oldToYoung);
@@ -53,6 +55,7 @@ console.log(oldToYoung);
 const peepsLast = people.sort((prev, next) => {
   const before = prev.split(", ");
   const after = next.split(", ");
+  // return 1 or -1 depending on the place in the alphabet
   return before[1] > after[1] ? 1 : -1;
 });
 console.log(peepsLast);
@@ -60,11 +63,14 @@ console.log(peepsLast);
 // Sum up the instances of each of these
 const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
 const count = data.reduce((allVehicles, vehicle) => {
+  // check if the object contains vehicle if so inrement it by one
   if (vehicle in allVehicles) {
     allVehicles[vehicle] += 1;
+  // If not present add it to the object with a value of one
   } else {
     allVehicles[vehicle] = 1;
   }
   return allVehicles;
+  // allVehicles starts as an empty object to pass in the values
 }, {});
 console.log(count);
