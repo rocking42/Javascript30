@@ -1,0 +1,43 @@
+/*
+  root is the highest html element
+*/
+:root {
+  /* -- sets a variable that can be used through the stylesheet*/
+  --base: #ffc600;
+  --spacing: 50px;
+  --blur: 10px;
+}
+
+/*
+  misc styles, nothing to do with CSS variables
+*/
+/* call defined variable by prefixing var to the element */
+img {
+  padding: var(--spacing);
+  background: var(--base);
+  filter: blur(var(--blur));
+}
+
+.hl {
+  color: var(--base);
+}
+
+body {
+  text-align: center;
+}
+
+body {
+  background: #193549;
+  color: white;
+  font-family: 'helvetica neue', sans-serif;
+  font-weight: 100;
+  font-size: 50px;
+}
+
+.controls {
+  margin-bottom: 50px;
+}
+
+input {
+  width:100px;
+}
