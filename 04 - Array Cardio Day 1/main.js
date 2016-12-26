@@ -23,7 +23,7 @@ const people = ['Beck, Glenn', 'Becker, Carl', 'Beckett, Samuel', 'Beddoes, Mick
 // Array.prototype.filter()
 // 1. Filter the list of inventors for those who were born in the 1500's
 const inventRes = inventors.filter((inventor) =>  inventor.year >= 1500 && inventor.year <= 1599);
-console.log(inventRes);
+console.table(inventRes);
 // Array.prototype.map()
 // 2. Give us an array of the inventors' first and last names
 const fullName = inventors.map((inventor) => {
@@ -33,7 +33,7 @@ console.log(fullName);
 // Array.prototype.sort()
 // 3. Sort the inventors by birthdate, oldest to youngest
 const birthOldToYoung = inventors.sort((prev, next) => prev.year - next.year);
-console.log(birthOldToYoung);
+console.table(birthOldToYoung);
 // Array.prototype.reduce()
 // 4. How many years did all the inventors live?
 const allAge = inventors.reduce((a,b) => {
@@ -43,19 +43,39 @@ const allAge = inventors.reduce((a,b) => {
 console.log(allAge);
 // 5. Sort the inventors by years lived
 const oldToYoung = inventors.sort((a, b) => {
-  // calvulate the age
+  // calculate the age
   const old = b.passed - b.year;
   const young = a.passed - b.year;
-  // return the sorted values
-  return young - old;
+  // add the values to the object this needs to be done to both to add it to all values
+  a.age = old;
+  b.age = old;
+  // return the sorted values based on the added row
+  return a.age - b.age;
 });
-console.log(oldToYoung);
+console.table(oldToYoung);
+// // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
+// // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
+// // these are performed on the wiki page
+// // get the div on the page
+// const div2 = document.querySelector(".mw-category")
+// // get the links from the div
+// const links = div2.querySelectorAll("a");
+// // create an array from the nodelist
+// const linkArr2 = Array.from(links);
+// // map to get the text content
+// linkText = linkArr2.map(link => link.textContent);
+// // find all that contain de
+// linkText.filter((text) => text.includes("de"));
+// // written in one line
+// const res = Array.from(document.querySelectorAll(".mw-category a")).map(link => link.textContent)
+//                                                                    .filter((text) => text.includes("de"));
 // 7. sort Exercise
 // Sort the people alphabetically by last name
 const peepsLast = people.sort((prev, next) => {
   const before = prev.split(", ");
   const after = next.split(", ");
   // return 1 or -1 depending on the place in the alphabet
+  // sort works by placing the item base on either 1 or -1
   return before[1] > after[1] ? 1 : -1;
 });
 console.log(peepsLast);
