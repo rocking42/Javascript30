@@ -18,11 +18,16 @@ myApp = {
     const result = myApp
         .filterCity() // return filtered results
         //  return the html from each element of the array
-         .map(single => `
+         .map(single => {
+           const regex = new RegExp(this.value, 'gi');
+           const cityName = single.city.replace(regex, `<span class='hl'>${this.value}</span>`);
+           const stateName = single.state.replace(regex, `<span class='hl'>${this.value}</span>`);
+           return`
            <li>
-            <span>${single.city}</span><span>${single.state}</span><span>${single.population}</span>
-          </li>`)
-         .join("");
+            <span class="name">${cityName}, ${stateName}</span>
+            <span class="population">${single.population}</span>
+          </li>`;
+        }).join("");
          //If the user input is blank append an empty string
          myApp.input.value.length >= 1 ? myApp.list.innerHTML = result : myApp.list.innerHTML = "";
   }
