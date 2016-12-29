@@ -11,7 +11,7 @@ myApp = {
       // return whether the city or state matches the user input
       return town.startsWith(userInput) ||
              state.startsWith(userInput);
-     }).slice(0, 30) // Only return the first 30
+     }).slice(0, 30); // Only return the first 30
   },
   // callback function
   findCity: function() {
@@ -19,6 +19,7 @@ myApp = {
         .filterCity() // return filtered results
         //  return the html from each element of the array
          .map(single => {
+          //  mathches and highlights text matching the user input
            const regex = new RegExp(this.value, 'gi');
            const cityName = single.city.replace(regex, `<span class='hl'>${this.value}</span>`);
            const stateName = single.state.replace(regex, `<span class='hl'>${this.value}</span>`);
