@@ -12,7 +12,7 @@ setInterval(() => {
 // Size of the line
 let size = 10;
 let big = false;
-// work out whether to increase or decrease the line based of the big var
+// work out whether to increase or decrease the line based of the big vars
 setInterval(() => {
   if (big === false) {
     size += 2;
