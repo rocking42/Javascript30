@@ -1,3 +1,7 @@
+# 30 Day JS Challenge
+
+ These are mostly my personal solutions to the Wes Bos 30 day JS challenge. These were done in conjuction with the video series.
+
 # Babel setup
 
 after initialising a package.json run the command:
