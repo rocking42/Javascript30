@@ -1,17 +1,37 @@
-![](https://javascript30.com/images/JS3-social-share.png)
+# Babel setup
 
-# JavaScript30
+after initialising a package.json run the command:
 
-Starter Files + Completed solutions for the JavaScript 30 Day Challenge. 
+```
+  npm i babel-cli babel-preset-es2015 --save
+```
+Following this add the following to package.json scripts
 
-Grab the course at [https://JavaScript30.com](https://JavaScript30.com)
+```
+  "babel": "babel yourfile.js --watch --out-file outputFile.js"
+```
 
-Text-based guides (unofficial) for the challenges can be found here - [Text Guides](https://github.com/nitishdayal/JavaScript30).
+Add any babel presets or plugins
+```
+  "babel": {
+    "presets": [
+      "es2015"
+    ],
+    "plugins": ["transform-object-rest-spread"]
+  }
+```
 
-## Pull Requests
+any additional plugin can be added by finding the relevant plugin at babel e.g:
+```
+  npm install babel-plugin-transform-object-rest-spread --save
+```
 
-These are meant to be 1:1 copies of what is done in the video. If you found a better / different way to do things, great, but I will be keeping them the same as the videos. 
+Finally to run babel run:
+```
+  npm run babel
+```
 
-The starter files + solutions will be updated if/when the videos are updated. 
-
-Thanks!
+To polyfill any needed methods without webpack add the script
+```
+  <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+```
