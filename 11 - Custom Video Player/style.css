@@ -89,7 +89,17 @@ body {
   width:50%;
   background:#ffc600;
   flex:0;
-  flex-basis:50%;
+  flex-basis:0%;
+}
+
+.showTime {
+  z-index: 10000000;
+  color: white;
+  display: none;
+  position: absolute;
+  background: black;
+  padding: 3px 7px;
+  border-radius: 4px 4px 4px 4px;
 }
 
 /* unholy css to style input type="range" */
